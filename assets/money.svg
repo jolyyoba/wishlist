@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" />
+    </filter>
+  </defs>
+  <g filter="url(#wobble)" stroke="#111111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 3D side rim of the Mario coin -->
+    <ellipse cx="216" cy="202" rx="106" ry="136" fill="#E09F00" />
+    <!-- Main golden coin face -->
+    <ellipse cx="194" cy="200" rx="106" ry="136" fill="#FFD93D" />
+    <!-- Inner recessed ring -->
+    <ellipse cx="194" cy="200" rx="80" ry="108" fill="#F6C428" stroke="#D97706" stroke-width="4.5" />
+    <!-- Iconic Mario coin vertical slot -->
+    <rect x="176" y="132" width="36" height="136" rx="14" fill="#FFE885" stroke="#111111" stroke-width="5.5" />
+    <path d="M188 144 V256" stroke="#D97706" stroke-width="3.5" />
+    <!-- Glossy shine strokes -->
+    <path d="M132 138 Q120 198 132 260" stroke="#FFFBEB" stroke-width="6" />
+    <path d="M148 116 Q160 106 174 102" stroke="#FFFBEB" stroke-width="5" />
+    <!-- Cute doodle sparkles around -->
+    <path d="M68 96 L76 112 L92 118 L76 124 L68 140 L60 124 L44 118 L60 112 Z" fill="#FF6B6B" stroke-width="4" />
+    <path d="M338 274 L344 286 L356 290 L344 294 L338 306 L332 294 L320 290 L332 286 Z" fill="#FFD93D" stroke-width="4" />
+  </g>
+</svg>

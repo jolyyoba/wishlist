@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" />
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="#F6F6F6" />
+  <path d="M0 80 H400 M0 160 H400 M0 240 H400 M0 320 H400" stroke="#E2E8F0" stroke-width="2" />
+  <g filter="url(#wobble)" stroke="#111111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Gamepad body -->
+    <path d="M104 132 C135 124 265 124 296 132 C328 140 348 210 342 268 C338 302 308 312 286 286 L252 246 H148 L114 286 C92 312 62 302 58 268 C52 210 72 140 104 132 Z" fill="#FFFFFF" />
+    <!-- Grips colored by marker -->
+    <path d="M104 132 C74 144 55 212 58 268 C62 300 90 308 110 286 L132 230 L108 134 Z" fill="#374151" />
+    <path d="M296 132 C326 144 345 212 342 268 C338 300 310 308 290 286 L268 230 L292 134 Z" fill="#374151" />
+    <!-- Left stick -->
+    <circle cx="132" cy="175" r="22" fill="#FFD93D" />
+    <!-- D-pad -->
+    <path d="M154 205 H170 V189 H186 V205 H202 V221 H186 V237 H170 V221 H154 Z" fill="#4B5563" stroke-width="4" />
+    <!-- Right stick -->
+    <circle cx="226" cy="218" r="20" fill="#60A5FA" />
+    <!-- ABXY colorful buttons -->
+    <circle cx="268" cy="158" r="10" fill="#FF6B6B" stroke-width="4" />
+    <circle cx="288" cy="176" r="10" fill="#FFD93D" stroke-width="4" />
+    <circle cx="268" cy="194" r="10" fill="#4ADE80" stroke-width="4" />
+    <circle cx="248" cy="176" r="10" fill="#A78BFA" stroke-width="4" />
+    <!-- Little wifi squiggle above -->
+    <path d="M180 96 Q200 78 220 96 M188 108 Q200 96 212 108" stroke="#FF6B6B" stroke-width="5" />
+  </g>
+</svg>

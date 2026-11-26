@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" />
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="#F6F6F6" />
+  <path d="M0 80 H400 M0 160 H400 M0 240 H400 M0 320 H400" stroke="#E2E8F0" stroke-width="2" />
+  <g filter="url(#wobble)" stroke="#111111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Open lid -->
+    <path d="M114 195 C114 102 286 102 286 195 Z" fill="#262626" />
+    <!-- Left & right buds -->
+    <circle cx="152" cy="178" r="28" fill="#FFF8EC" />
+    <circle cx="248" cy="166" r="30" fill="#FFF8EC" />
+    <rect x="142" y="188" width="20" height="8" rx="4" fill="#111111" stroke-width="3" />
+    <rect x="238" y="178" width="20" height="8" rx="4" fill="#111111" stroke-width="3" />
+    <!-- Upright pebble case -->
+    <path d="M110 194 H290 L286 248 C282 315 245 344 200 344 C155 344 118 315 114 248 Z" fill="#FFFFFF" />
+    <!-- Black rim -->
+    <path d="M112 194 H288" stroke="#111111" stroke-width="10" />
+    <!-- LED dot -->
+    <circle cx="200" cy="232" r="5" fill="#4ADE80" stroke-width="3" />
+    <!-- Musical note doodles -->
+    <path d="M74 128 V86 L98 80 V118" stroke="#FF6B6B" stroke-width="5" />
+    <circle cx="68" cy="130" r="8" fill="#FF6B6B" stroke-width="4" />
+    <circle cx="92" cy="120" r="8" fill="#FF6B6B" stroke-width="4" />
+    <path d="M322 110 V76 L342 72" stroke="#3B82F6" stroke-width="5" />
+    <circle cx="316" cy="112" r="7" fill="#3B82F6" stroke-width="4" />
+  </g>
+</svg>

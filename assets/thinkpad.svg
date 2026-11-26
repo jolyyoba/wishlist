@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" />
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="#F6F6F6" />
+  <path d="M0 80 H400 M0 160 H400 M0 240 H400 M0 320 H400" stroke="#E2E8F0" stroke-width="2" />
+  <g filter="url(#wobble)" stroke="#111111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- ThinkPad Screen Lid -->
+    <path d="M98 78 L314 96 L296 226 L88 206 Z" fill="#27272A" />
+    <path d="M112 94 L298 110 L284 210 L102 194 Z" fill="#60A5FA" />
+    <!-- Doodle code lines on screen -->
+    <path d="M122 122 H188 M122 142 H224 M122 162 H168" stroke="#FFFFFF" stroke-width="4" />
+    <!-- Keyboard Base -->
+    <path d="M88 206 L296 226 L342 308 L56 286 Z" fill="#3F3F46" />
+    <!-- Keys grid scribble -->
+    <path d="M104 224 L282 240 M96 244 L294 262 M155 278 L230 286" stroke="#18181B" stroke-width="6" />
+    <!-- Iconic Red TrackPoint dot! -->
+    <circle cx="195" cy="245" r="8" fill="#EF4444" stroke-width="3.5" />
+  </g>
+</svg>

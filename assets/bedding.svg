@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4.5" />
+    </filter>
+  </defs>
+  <rect width="400" height="400" fill="#F6F6F6" />
+  <path d="M0 80 H400 M0 160 H400 M0 240 H400 M0 320 H400" stroke="#E2E8F0" stroke-width="2" />
+  <g filter="url(#wobble)" stroke="#111111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Stack of colorful folded bedding -->
+    <rect x="86" y="256" width="228" height="46" rx="14" fill="#FFF3B0" />
+    <rect x="82" y="210" width="236" height="46" rx="14" fill="#FF9F9F" />
+    <rect x="88" y="164" width="224" height="46" rx="14" fill="#A5D8FF" />
+    <rect x="84" y="118" width="232" height="46" rx="14" fill="#B2F2BB" />
+    <!-- Ribbon tie -->
+    <path d="M188 118 V302 M212 118 V302" stroke="#FF6B6B" stroke-width="6" />
+    <path d="M200 116 C172 82 145 104 178 118 C148 124 168 142 200 122 C232 142 252 124 222 118 C255 104 228 82 200 116 Z" fill="#FF6B6B" stroke-width="4.5" />
+    <!-- Zzz sleepy doodle -->
+    <path d="M308 78 H332 L308 104 H332" stroke="#8B5CF6" stroke-width="5" />
+  </g>
+</svg>
