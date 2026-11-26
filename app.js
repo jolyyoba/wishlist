@@ -572,7 +572,7 @@ function renderWishlist() {
         ? `<div class="gift-card__expand-hint pixel-title-font">
              <span>${isExpanded ? "[ − свернуть ]" : "[ + подробнее ]"}</span>
            </div>
-           <div class="gift-card__details-wrap" style="height: ${isExpanded ? "auto" : "0px"}">
+           <div class="gift-card__details-wrap">
              <div class="gift-card__details-inner">
                <div class="gift-card__details">${detailsBody}</div>
              </div>
@@ -721,38 +721,11 @@ wishlistGrid.addEventListener("click", (e) => {
   const card = e.target.closest(".gift-card[data-card-id]");
   if (!card) return;
   const cardId = card.dataset.cardId;
-  const wrap = card.querySelector(".gift-card__details-wrap");
   const nowExpanded = !expandedIds.has(cardId);
   if (nowExpanded) expandedIds.add(cardId);
   else expandedIds.delete(cardId);
 
-  if (wrap) {
-    if (nowExpanded) {
-      wrap.style.height = "0px";
-      void wrap.offsetHeight;
-      const targetHeight = wrap.scrollHeight;
-      card.classList.add("is-expanded");
-      requestAnimationFrame(() => {
-        wrap.style.height = `${targetHeight}px`;
-      });
-      const onEnd = (ev) => {
-        if (ev.propertyName !== "height") return;
-        wrap.removeEventListener("transitionend", onEnd);
-        if (expandedIds.has(cardId)) wrap.style.height = "auto";
-      };
-      wrap.addEventListener("transitionend", onEnd);
-    } else {
-      wrap.style.height = `${wrap.scrollHeight}px`;
-      void wrap.offsetHeight;
-      requestAnimationFrame(() => {
-        card.classList.remove("is-expanded");
-        wrap.style.height = "0px";
-      });
-    }
-  } else {
-    card.classList.toggle("is-expanded", nowExpanded);
-  }
-
+  card.classList.toggle("is-expanded", nowExpanded);
   card.setAttribute("aria-expanded", String(nowExpanded));
   const hint = card.querySelector(".gift-card__expand-hint span");
   if (hint) hint.textContent = nowExpanded ? "[ − свернуть ]" : "[ + подробнее ]";

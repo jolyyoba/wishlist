@@ -620,15 +620,11 @@ body {
 }
 
 .gift-card__details-wrap {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: height 0.38s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.28s ease;
+  display: none;
 }
 
 .gift-card.is-expanded .gift-card__details-wrap {
-  opacity: 1;
+  display: block;
 }
 
 .gift-card__details-inner {
