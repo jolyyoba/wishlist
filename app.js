@@ -343,6 +343,7 @@ function triggerHaptic(type = "tap") {
   if (typeof navigator !== "undefined" && typeof navigator.vibrate === "function") {
     const patterns = {
       tap: [8],
+      expand: [4],
       select: [10, 14, 8],
       confirm: [14, 24, 20],
       cancel: [22, 24, 14],
@@ -362,6 +363,7 @@ function triggerHaptic(type = "tap") {
     const gain = audioCtx.createGain();
     const profiles = {
       tap: { freqStart: 280, freqEnd: 120, duration: 0.024, volume: 0.035 },
+      expand: { freqStart: 980, freqEnd: 340, duration: 0.009, volume: 0.022 },
       select: { freqStart: 420, freqEnd: 580, duration: 0.035, volume: 0.04 },
       confirm: { freqStart: 460, freqEnd: 760, duration: 0.065, volume: 0.05 },
       cancel: { freqStart: 320, freqEnd: 180, duration: 0.055, volume: 0.04 },
@@ -727,7 +729,7 @@ wishlistGrid.addEventListener("click", (e) => {
   card.setAttribute("aria-expanded", String(nowExpanded));
   const hint = card.querySelector(".gift-card__expand-hint span");
   if (hint) hint.textContent = nowExpanded ? "[ − свернуть ]" : "[ + подробнее ]";
-  triggerHaptic("select");
+  triggerHaptic("expand");
 });
 
 function openReserveModal(id, triggerEl) {
