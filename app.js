@@ -729,19 +729,21 @@ wishlistGrid.addEventListener("click", (e) => {
   if (wrap) {
     if (nowExpanded) {
       wrap.style.height = "0px";
+      void wrap.offsetHeight;
+      const targetHeight = wrap.scrollHeight;
       card.classList.add("is-expanded");
       requestAnimationFrame(() => {
-        wrap.style.height = `${wrap.scrollHeight}px`;
+        wrap.style.height = `${targetHeight}px`;
       });
-      wrap.addEventListener(
-        "transitionend",
-        () => {
-          if (expandedIds.has(cardId)) wrap.style.height = "auto";
-        },
-        { once: true }
-      );
+      const onEnd = (ev) => {
+        if (ev.propertyName !== "height") return;
+        wrap.removeEventListener("transitionend", onEnd);
+        if (expandedIds.has(cardId)) wrap.style.height = "auto";
+      };
+      wrap.addEventListener("transitionend", onEnd);
     } else {
       wrap.style.height = `${wrap.scrollHeight}px`;
+      void wrap.offsetHeight;
       requestAnimationFrame(() => {
         card.classList.remove("is-expanded");
         wrap.style.height = "0px";
