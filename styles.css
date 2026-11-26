@@ -336,7 +336,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
-  align-items: start;
 }
 
 /* Gift Card */
@@ -619,22 +618,23 @@ body {
 }
 
 .gift-card__details-wrap {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  will-change: height, opacity;
+  transition: height 0.46s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .gift-card.is-expanded .gift-card__details-wrap {
-  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 .gift-card__details-inner {
-  overflow: hidden;
-  min-height: 0;
+  padding-top: 8px;
 }
 
 .gift-card__details {
-  margin-top: 8px;
   padding: 12px;
   border-left: 2px solid var(--text);
   background: var(--surface-elevated);
@@ -643,14 +643,6 @@ body {
   line-height: 1.35;
   letter-spacing: 0.02em;
   color: var(--text);
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 0.32s ease, transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.gift-card.is-expanded .gift-card__details {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .gift-card--priority .gift-card__details {
