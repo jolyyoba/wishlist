@@ -731,7 +731,19 @@ body {
 }
 
 .booking-meta__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
+}
+
+.anon-avatar {
+  width: 34px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid currentColor;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .booking-meta__note {

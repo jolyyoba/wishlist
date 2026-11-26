@@ -449,6 +449,14 @@ function escapeHtml(str) {
     .replaceAll("'", "&#39;");
 }
 
+function renderReserverIdentity(name) {
+  const clean = (name || "").trim();
+  if (!clean || clean === "Анонимный даритель") {
+    return `<img src="assets/anon.jpg" alt="Аноним" title="Анонимный даритель" class="anon-avatar" />`;
+  }
+  return escapeHtml(clean);
+}
+
 function getItemBookings(itemId) {
   return bookingsList.filter((b) => b.item_id === itemId);
 }
@@ -577,7 +585,7 @@ function renderWishlist() {
           const canCancelThis = canCancelBooking(b);
           return `<div class="multi-booking-item">
             <div class="multi-booking-item__info">
-              <span class="multi-booking-item__name">${escapeHtml(b.reserver_name || "Анонимный даритель")}</span>
+              <span class="multi-booking-item__name">${renderReserverIdentity(b.reserver_name)}</span>
               ${b.note ? `<span class="multi-booking-item__note">${escapeHtml(b.note)}</span>` : ""}
             </div>
             ${
@@ -596,7 +604,7 @@ function renderWishlist() {
     } else if (singleBooking) {
       bookingMetaHtml = `<div class="booking-meta">
         <div>
-          <span class="booking-meta__who">Бронь: ${escapeHtml(singleBooking.reserver_name || "Анонимный даритель")}</span>
+          <span class="booking-meta__who">Бронь: ${renderReserverIdentity(singleBooking.reserver_name)}</span>
           ${singleBooking.note ? `<span class="booking-meta__note">${escapeHtml(singleBooking.note)}</span>` : ""}
         </div>
       </div>`;
